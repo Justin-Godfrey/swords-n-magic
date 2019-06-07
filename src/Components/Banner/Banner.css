@@ -1,0 +1,14 @@
+.coming-soon-banner {
+    height: 45vh;
+    width: 100%;
+    background: white;
+}
+
+.banner {
+    background-image: url(../../Assets/SnM_YTBanner.png);
+    height: 45vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

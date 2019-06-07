@@ -1,0 +1,91 @@
+.content-2 {
+    background: white;
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.pictures-2 {
+    height: 80%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.row-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+}
+
+.spell-1 {
+    background-image: url(../../Assets/Spell-2.png);
+    height: 95%;
+    width: 30%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.spell-2 {
+    background-image: url(../../Assets/Spell-1.png);
+    height: 95%;
+    width: 30%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.spell-3 {
+    background-image: url(../../Assets/Spell-3.png);    
+    height: 95%;
+    width: 30%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.row-2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+}
+
+.spell-4 {
+    background-image: url(../../Assets/Spell-4.png);    
+    height: 95%;
+    width: 30%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.spell-5 {
+    background-image: url(../../Assets/Spell-6.png);    
+    height: 95%;
+    width: 30%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.spell-6 {
+    background-image: url(../../Assets/Spell-5.png);
+    height: 95%;
+    width: 30%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+

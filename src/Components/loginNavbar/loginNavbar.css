@@ -1,0 +1,38 @@
+.login-navbar {
+    width: 100vw;
+}
+
+.links-2 {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.links-2  a {
+    color: white;
+    text-decoration: none;
+    
+}
+
+.logo-container-2 {
+    background-image: url('../../Assets/SnMNewLogo.png');
+    width: 5vw;
+    height: 8vh;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.navbar-2 {
+    width: 100%;
+    height: 8vh;
+    background: rgba(163,82,205,.8);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: right;
+    
+}

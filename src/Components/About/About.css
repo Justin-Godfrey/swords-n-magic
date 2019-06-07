@@ -1,0 +1,53 @@
+.about {
+    height: 45vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .3);
+    z-index: 5;
+}
+
+.section-2 {
+    height: 100vh;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}  
+
+.section-2-header h1 {
+    font-size: 100px;
+    color: rgba(163,82,205, 1);
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.section-2-header {
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.section-2-images {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.section-2-img-1 {
+    background-image: url('../../Assets/maya.png');
+    width: 20%;
+    height: 50vh;
+}
+
+.section-2-img-3 {
+    background-image: url('../../Assets/pic.png');
+    width: 20%;
+    height: 50vh;
+}
