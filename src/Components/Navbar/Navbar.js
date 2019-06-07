@@ -34,6 +34,7 @@ class Navbar extends Component {
     if (window.pageYOffset >= this.state.popUpPosition) {
       this.setState({
         showPopUp: true,
+        showMenuDisplay: false
       });
     } else if (window.pageYOffset <= this.state.popUpPosition) {
       this.setState({
@@ -41,6 +42,13 @@ class Navbar extends Component {
       });
     }
   };
+
+  togglePopUpMenu = () => {
+    this.setState({
+      showMenuDisplay: !this.state.showMenuDisplay
+    }
+    )
+  }
 
   render() {
     return (
@@ -56,11 +64,24 @@ class Navbar extends Component {
         </nav>
         <div className="popup-container" ref={this.popUpRef}>
 
-          
+          {/* Show the pop up menu */}
+          {
+            this.state.showMenuDisplay ?
+            <div className="popup-menu-container">
+              <div className="popup-links-container"> 
+              <AnchorLink href='#about' offset='-1150'>About</AnchorLink>
+              <AnchorLink href='#content'>Content</AnchorLink>
+              <AnchorLink href='#social'>Social</AnchorLink>
+              <Link to='/login'>Community Highlights</Link>
+              </div>
+            </div>
+            :
+            null
+          }
 
           {// conditionally rendering the popup button if showPopUp on state is true
           this.state.showPopUp ? (
-            <button className="popup-btn">
+            <button className="popup-btn" onClick={this.togglePopUpMenu}>
               <span />
               <span />
             </button>

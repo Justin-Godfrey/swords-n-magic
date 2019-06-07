@@ -85,3 +85,28 @@
     }
 }
 
+.popup-menu-container {
+    width: 100vw;
+    height: 45vh;
+    position: fixed;
+    right: 0;
+    top: 15%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.popup-links-container {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(163,82,205,.8);
+}
+
+.popup-links-container a {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+}
