@@ -12,8 +12,8 @@ export default class About extends Component {
         </div>
         <div className="section-2">
         <div className='section-2-header'>
-        <h1>MULTI-PLAYER OPEN WORLD RPG</h1>
-        <h2>Prepare to take on a world of magic and monsters with your friends in this sword swingin', spell castin', enemy slayin' RPG with your friends!</h2>
+        <h1>Beautifully Landscaped Land</h1>
+        <h2>Be prepared to lose yourself in the wonderful world created by Kindred Games. With hours of secrets to find and places to explore, you'll quickly find that the main story isnt the only thing you want to spend your time doing.</h2>
         
         </div>
         <div className='section-2-images'>

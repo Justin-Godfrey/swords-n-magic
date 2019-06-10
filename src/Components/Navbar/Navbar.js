@@ -69,6 +69,7 @@ class Navbar extends Component {
             this.state.showMenuDisplay ?
             <div className="popup-menu-container">
               <div className="popup-links-container"> 
+              <AnchorLink href='#home'>Home</AnchorLink>
               <AnchorLink href='#about' offset='-1150'>About</AnchorLink>
               <AnchorLink href='#content'>Content</AnchorLink>
               <AnchorLink href='#social'>Social</AnchorLink>

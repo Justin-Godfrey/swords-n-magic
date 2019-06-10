@@ -48,8 +48,17 @@ export const FormTitle = styled.h1`
 `
 
 export const FormInput = styled.input.attrs({
-  placeholder: props => props.email ? 'Email' : 'Password',
-  type: props => props.email ? 'email' : 'password'
+  placeholder: props => {
+    if (props.email) return "email"
+    if (props.password) return "password"
+    if (props.firstname) return 'first name'
+    if(props.lastname) return 'last name'
+  },
+  type: props => {
+    if(props.email) return 'email'
+    if(props.password) return 'password'
+    return 'text'
+  }
 })`
   width: 80%;
   height: 10%;

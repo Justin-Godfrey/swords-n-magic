@@ -1,9 +1,16 @@
 import React, { Component } from "react";
-import "./Video.css";
-
+import YouTube from 'react-youtube';
+import './Video.css'
 
 export default class Video extends Component {
   render() {
+      const opts = {
+        height: '390',
+        width: '640',
+        playerVars: { // https://developers.google.com/youtube/player_parameters
+          autoplay: 1
+        }
+      };
     return (
     
       <div className="video-page">
@@ -11,9 +18,11 @@ export default class Video extends Component {
       </h1>
       <div className="video">
       
-      <video width="800" height="500" autoPlay muted controls>
-  <source src={'#'} type="video/mp4"></source>
-  </video>
+      <YouTube videoId='RK50YocCV-Y'
+      opts={opts}
+      onReady={this._onReady}/>
+  
+  
       </div>
       </div>
 

@@ -103,10 +103,20 @@
     justify-content: space-around;
     align-items: center;
     background: rgba(163,82,205,.8);
+    animation: menu-slide-in 300ms linear;
 }
 
 .popup-links-container a {
     color: white;
     text-decoration: none;
     font-size: 22px;
+}
+
+@keyframes menu-slide-in {
+    0% {
+        margin-right: -50vw;
+    }
+    100% {
+        margin-right: 0
+    }
 }
