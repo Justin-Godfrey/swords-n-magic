@@ -89,7 +89,21 @@
     background-repeat: no-repeat;
 }
 
+.content-description h1 {
+    font-family: Chinese Rocks;
+    font-size: 100px;
+}
+
 .content-description h2 {
+    font-family: Cardenio Modern;
+    font-size: 30px;
+}
+
+.section-2-header h1 {
     font-family: Chinese Rocks;
 }
 
+.section-2-header h2 {
+    font-family: Cardenio Modern;
+    font-size: 30px;
+}
