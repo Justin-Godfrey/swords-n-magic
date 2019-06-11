@@ -89,3 +89,14 @@
     background-repeat: no-repeat;
 }
 
+.content-description1 h1 {
+    color: #A353CE;
+    font-family: Chinese Rocks;
+    font-size: 100px;
+}
+
+.content-description1 h2 {
+    font-family: Cardenio Modern;
+    font-size: 30px;
+}
+

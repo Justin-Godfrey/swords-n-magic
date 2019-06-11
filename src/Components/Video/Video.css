@@ -1,7 +1,7 @@
 .video-page {
     height: 70vh;
     width: 100%;
-    background-color: aquamarine;
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -11,6 +11,15 @@
 .video {
     height: 50vh;
     width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.video-page h1 {
+    font-family: Cardenio Modern;
+    font-size: 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

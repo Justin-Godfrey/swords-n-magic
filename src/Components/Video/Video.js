@@ -14,8 +14,9 @@ export default class Video extends Component {
     return (
     
       <div className="video-page">
-      <h1>Get Lost in the beautiful world of SnMnS
-      </h1>
+      <h1>Be prepared to lose yourself in the wonderful world created by Kindred Games. With hours of secrets to find and places to explore, you'll quickly find that the main story isnt the only thing you want to spend your time doing.</h1>
+
+      
       <div className="video">
       
       <YouTube videoId='RK50YocCV-Y'

@@ -15,15 +15,21 @@
     align-items: center;
 }  
 
-.section-2-header h1 {
+.section-2-header1 h1 {
     font-size: 100px;
-    color: rgba(163,82,205, 1);
+    color: #DB5050;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    font-family: Chinese Rocks;
 }
 
-.section-2-header {
+.section-2-header1 h2 {
+    font-family: Cardenio Modern;
+    font-size: 30px;
+}
+
+.section-2-header1 {
     height: 40vh;
     width: 100%;
     display: flex;
@@ -41,13 +47,20 @@
 }
 
 .section-2-img-1 {
-    background-image: url('../../Assets/maya.png');
-    width: 20%;
+    background-image: url('../../Assets/town.png');
+    width: 30%;
     height: 50vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .section-2-img-3 {
-    background-image: url('../../Assets/pic.png');
-    width: 20%;
+    background-image: url('../../Assets/landscape.png');
+    width: 30%;
     height: 50vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
+

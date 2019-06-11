@@ -11,10 +11,9 @@ export default class About extends Component {
 
         </div>
         <div className="section-2">
-        <div className='section-2-header'>
-        <h1>Beautifully Landscaped Land</h1>
-        <h2>Be prepared to lose yourself in the wonderful world created by Kindred Games. With hours of secrets to find and places to explore, you'll quickly find that the main story isnt the only thing you want to spend your time doing.</h2>
-        
+        <div className='section-2-header1'>
+        <h1>Swords 'n Magic by Kindred Games</h1>
+        <h2>Grab your friends, grab your gear and set out for adventure in a world of swords and magic. Discover hundreds of weapons, items and spells and meet new friends and foes to use them on. Make your mark and find a place to call home in this couch co-op action RPG. Come discover Swords 'n Magic and Stuff. </h2>      
         </div>
         <div className='section-2-images'>
           <div className="section-2-img-1"></div>
