@@ -93,18 +93,22 @@
     font-family: Chinese Rocks;
     font-size: 100px;
     color: #5FC465;
+    text-align: center;
 }
 
 .content-description h2 {
     font-family: Cardenio Modern;
     font-size: 30px;
+    text-align: center;
 }
 
 .section-2-header h1 {
     font-family: Chinese Rocks;
+    text-align: center;
 }
 
 .section-2-header h2 {
     font-family: Cardenio Modern;
     font-size: 30px;
+    text-align: center;
 }

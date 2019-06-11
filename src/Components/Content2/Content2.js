@@ -19,7 +19,7 @@ export default class Content2 extends Component {
         </div>
         <div className="content-description">
           <h1>SPELLS</h1>
-          <h2>From Fireballs, to health regens, charms and portals, your imagination is key on how you wish to take down enemy camps and monsters. There will never be a shortage on ways to take them down!</h2>
+          <h2>From Fireballs, to health regens, charms and portals, your imagination is key on how you wish to take down enemy camps and monsters. There will never be a shortage on ways to obliterate them!</h2>
         </div>
       </div>
     );

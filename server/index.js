@@ -1,3 +1,5 @@
+const authCtrl = require('../server/auth_controllers')
+
 require('dotenv').config()
 const express = require('express'),
       session = require('express-session'),
@@ -15,6 +17,8 @@ const express = require('express'),
               maxAge: 1000 * 60 * 60
           }
       }))
+
+      app.post('/auth/newUser', authCtrl.register)
 
       massive(CONNECTION_STRING).then((database) => {
           app.set('db', database)

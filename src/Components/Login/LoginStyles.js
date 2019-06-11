@@ -14,7 +14,7 @@ const glow = keyframes`
 export const AppContainer = styled.div`
   width: 100vw;
   height: 100vh;
-  background: #282a36;
+  background: #5D99C4;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -25,8 +25,8 @@ export const AppContainer = styled.div`
 export const FormContainer = styled.form`
   width: 30%;
   height: 60%;
-  background: #44475a;
-  border: 2px solid #6272a4;
+  background: rgba(0, 0, 0, .7);
+  border: 2px solid #FFF;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -43,22 +43,23 @@ export const FormHeader = styled.div`
 `
 
 export const FormTitle = styled.h1`
-  font-size: 24px;
-  color: #50fa7b;
+  font-size: 30px;
+  color: #FFF;
 `
 
 export const FormInput = styled.input.attrs({
   placeholder: props => {
-    if (props.email) return "email"
-    if (props.password) return "password"
-    if (props.firstname) return 'first name'
-    if(props.lastname) return 'last name'
+    if (props.email) return "Email" 
+    if (props.password) return "Password"
+    if (props.firstname) return 'First name'
+    if(props.lastname) return 'Last name'
   },
   type: props => {
     if(props.email) return 'email'
     if(props.password) return 'password'
     return 'text'
-  }
+  },
+  name: props => props.name
 })`
   width: 80%;
   height: 10%;
@@ -68,11 +69,12 @@ export const FormInput = styled.input.attrs({
 export const FormBtn = styled.button`
   width: 80%;
   height: 10%;
-  background: ${props => props.register ? '#bd93f9' : '#f1fa8c'};
-  color: #6272a4;
+  background: ${props => props.register ? '#1A3040' : '#5D99C4'};
+  font-size: 20px;
+  color: #FFF;
   border: none;
   &:hover {
-    background: ${props => props.register ? '#ff79c6' : '#ffb86c'};
+    background: ${props => props.register ? '#A353CE' : '#065d77'};
     cursor: pointer;
   }
 `

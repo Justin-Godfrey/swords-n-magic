@@ -8,7 +8,7 @@ export default class Content extends Component {
       <div id='content' className="content">
         <div className="content-description1">
           <h1>WEAPONS</h1>
-          <h2>With hundreds of weapons to find, craft and unlock, you will be able to master your craft in combat whether it be with axes, swords, bows and much more. Choose your weapon player, and let the game begin!</h2>
+          <h2>With hundreds of weapons to find, craft and unlock, you will be able to master your craft in combat whether it be with axes, swords, bows and much more. Choose your weapon, player, and let the game begin!</h2>
         </div>
         <div className="pictures">
           <div className="row-1">
