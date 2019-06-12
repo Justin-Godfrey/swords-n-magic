@@ -1,9 +1,11 @@
 import React, {Component} from 'react'
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import {connect} from 'react-redux'
  
-export default class Highlights extends Component {
+class Highlights extends Component {
     render() {
+        console.log(this.props)
         return (
             <Carousel>
                 <div>
@@ -22,3 +24,9 @@ export default class Highlights extends Component {
         );
     }
 };
+
+function mapStateToProps(state) {
+    return state
+} 
+
+export default connect(mapStateToProps)(Highlights);

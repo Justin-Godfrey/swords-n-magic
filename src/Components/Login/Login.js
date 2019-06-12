@@ -2,6 +2,8 @@ import React from "react";
 import "reset-css";
 import LoginNavbar from "../loginNavbar/loginNavbar";
 import axios from 'axios'
+import {connect} from 'react-redux'
+import {login} from '../../Redux/userReducer'
 
 // Styled Components
 import {
@@ -45,6 +47,7 @@ handleRegisterUser = (event) => {
   axios.post('/auth/newUser', {firstname, lastname, password, email})
   .then((response) => {
     // Store user to redux
+    this.props.login(response.data)
     if(response.data.email){
       this.props.history.push('/highlights')
     }
@@ -57,6 +60,7 @@ handleLoginUser = (event) => {
   axios.post( '/auth/login',{password, email})
   .then((response) => {
     // store the redux user
+    this.props.login(response.data)
     if(response.data.email){
       this.props.history.push('/highlights')
     }
@@ -107,4 +111,8 @@ handleLoginUser = (event) => {
   }
 }
 
-export default Login;
+function mapStateToProps(state) {
+  return state
+}
+
+export default connect(mapStateToProps, {login})(Login);
