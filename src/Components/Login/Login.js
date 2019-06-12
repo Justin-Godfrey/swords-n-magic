@@ -45,7 +45,21 @@ handleRegisterUser = (event) => {
   axios.post('/auth/newUser', {firstname, lastname, password, email})
   .then((response) => {
     // Store user to redux
-    this.props.history.push('/highlights')
+    if(response.data.email){
+      this.props.history.push('/highlights')
+    }
+  })
+}
+
+handleLoginUser = (event) => {
+  event.preventDefault()
+  const{password, email} = this.state
+  axios.post( '/auth/login',{password, email})
+  .then((response) => {
+    // store the redux user
+    if(response.data.email){
+      this.props.history.push('/highlights')
+    }
   })
 }
 
@@ -72,12 +86,12 @@ handleRegisterUser = (event) => {
         </AppContainer>
 
         : <AppContainer>
-        <FormContainer>
+        <FormContainer onSubmit={this.handleLoginUser}>
           <FormHeader>
             <FormTitle>Community Highlights</FormTitle>
           </FormHeader>
-          <FormInput email="email" />
-          <FormInput password="password"/>
+          <FormInput onChange={this.handleInputChange} email="email" name="email"/>
+          <FormInput onChange={this.handleInputChange} password="password" name="password"/>
           <FormBtn>Submit</FormBtn>
           <FormBtn register onClick={this.toggleRegisterMenu}>Register</FormBtn>
         </FormContainer>

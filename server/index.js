@@ -19,6 +19,7 @@ const express = require('express'),
       }))
 
       app.post('/auth/newUser', authCtrl.register)
+      app.post('/auth/login', authCtrl.login)
 
       massive(CONNECTION_STRING).then((database) => {
           app.set('db', database)

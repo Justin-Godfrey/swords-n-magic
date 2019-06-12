@@ -16,6 +16,26 @@ module.exports = {
                 delete user[0].pass;
                 res.send(user[0])
             })
+        },
+    login: (req, res) => {
+        const{password, email} = req.body
+        console.log(password, email)
+        const db = req.app.get('db');
+        const hashedPassword = bcrypt.hashSync(password, 15)
+        db.find_user_by_email({email})
+        .then((dbres) => {
+            console.log(dbres)
+            if(dbres.length === 0){
+                res.send('Email is Incorrect')
+            }
+            if(bcrypt.compareSync(password, hashedPassword)) {
+                delete dbres[0].pass
+                res.send(dbres[0])
+            }
+            else{
+                res.send('Incorrect Password')
+            }
+        })
     }
 }
 
