@@ -36,6 +36,12 @@ module.exports = {
                 res.send('Incorrect Password')
             }
         })
+    },
+    images: (req, res) => {
+        const db = req.app.get('db')
+        db.get_all_images().then(response => {
+            res.send(response)
+        })
     }
 }
 

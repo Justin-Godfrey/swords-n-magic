@@ -10,8 +10,14 @@ import { v4 as randomString } from "uuid";
 class Highlights extends Component {
   state = {
     isUploading: false,
-    url: ""
+    url: "",
+    images: [],
+    input: ''
   };
+
+  componentDidMount() {
+   this.getImages()
+  }
 
   getSignedRequest = ([file]) => {
     this.setState({ isUploading: true });
@@ -45,10 +51,10 @@ class Highlights extends Component {
       .put(signedRequest, file, options)
       .then(response => {
         this.setState({ isUploading: false, url });
-        return axios.post('/api/store/image', {url: this.state.url});
+        return axios.post("/api/store/image", { url: this.state.url, description: this.state.input });
       })
       .then(serverResponse => {
-          console.log(serverResponse.data)
+        this.getImages()
       })
       .catch(err => {
         this.setState({
@@ -57,52 +63,85 @@ class Highlights extends Component {
       });
   };
 
+  handleInputChange = (event) => {
+    this.setState({input: event.target.value})
+  }
+
+  getImages = () => {
+    axios.get("/all/images").then(response => {
+      this.setState({
+        images: response.data
+      });
+    });
+  }
+
   render() {
     console.log(this.state);
+
+    const mappedImages = this.state.images.map(image => (
+      <div>
+        <img
+          src={image.url}
+          alt="something"
+        />
+        <p className="legend">{image.description}</p>
+      </div>
+    ));
+
     return (
       <>
-        <Carousel dynamicHeight>
-          <div style={{ height: "500px", width: "1000px" }}>
+        {/* <Carousel infiniteLoop autoPlay stopOnHover dynamicHeight>
+          <div style={{ height: "750px", width: "2000px" }}>
             <img
               src="https://via.placeholder.com/190"
               alt="something"
               style={{ width: "100%", height: "100%" }}
             />
-            <p className="legend">Legend 1</p>
+            <p className="legend">With an autoscroll</p>
           </div>
-          <div>
-            <img src="../../Assets/logo.png" />
-            <p className="legend">Legend 2</p>
+          <div style={{ height: "750px", width: "2000px" }}>
+            <img
+              src="https://via.placeholder.com/190"
+              alt="something"
+              style={{ width: "100%", height: "100%" }}
+            />
+            <p className="legend">Carousel</p>
           </div>
-          <div>
-            <img src="../Assets/maya.png" />
-            <p className="legend">Legend 3</p>
-          </div>
-        </Carousel>
+        </Carousel> */}
+
+        {mappedImages}
 
         <Dropzone
           onDropAccepted={this.getSignedRequest}
           accept="image/*"
-          multiple={false}>
-          {({getRootProps, getInputProps}) => (
-            <div 
-            style = {{
-            position: 'relative',
-            width: 160,
-            height: 80,
-            borderWidth: 5,
-            marginTop: 25,
-            borderColor: 'gray',
-            borderStyle: 'dashed',
-            borderRadius: 5,
-            display: 'inline-block',
-            fontSize: 17,}}
-            {...getRootProps()}>
+          multiple={false}
+        >
+          {({ getRootProps, getInputProps }) => (
+            <div
+              style={{
+                position: "relative",
+                width: 160,
+                height: 80,
+                borderWidth: 5,
+                marginTop: 25,
+                borderColor: "gray",
+                borderStyle: "dashed",
+                borderRadius: 5,
+                display: "inline-block",
+                fontSize: 17
+              }}
+              {...getRootProps()}
+            >
               <input {...getInputProps()} />
-                {this.state.isUploading ? <GridLoader /> : <p>Drop files here, or click to select files</p>}
+              {this.state.isUploading ? (
+                <GridLoader />
+              ) : (
+                <p>Drop files here, or click to select files</p>
+              )}
             </div>
           )}
         </Dropzone>
+        <input placeholder="image description" onChange={this.handleInputChange}/>
       </>
     );
   }

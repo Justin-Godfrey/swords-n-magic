@@ -57,15 +57,16 @@ app.get('/sign-s3', (req, res) => {
   });
 
 app.post('/api/store/image', (req, res) => {
-    const {url} = req.body;
+    const {url, description} = req.body;
     const db = req.app.get('db');
-    db.upload_image({url}).then(() => {
+    db.upload_image({url, description}).then(() => {
         res.send('image uploaded')
     })
 })
 
 app.post("/auth/newUser", authCtrl.register);
 app.post("/auth/login", authCtrl.login);
+app.get('/all/images', authCtrl.images)
 
 massive(CONNECTION_STRING).then(database => {
   app.set("db", database);

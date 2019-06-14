@@ -7,16 +7,33 @@
     justify-content: space-around;
     align-items: center;
     text-align: center;
+    border-bottom: black;
 }
 
 .video {
-    height: 50vh;
+    height: 40vh;
     width: 40%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
+    
 }
+ .video-img {
+     height: 1.5vh;
+     width: 100%;
+     margin-top: 10px;
+     margin-right: 130px;
+ }
+
+    .video-img-1 {
+        background-image: url('../../Assets/Icon_Shard.png');
+        width: 200%;
+        height: 40%;
+        background-position: center;
+        background-size: fill;
+        
+    }
+
 
 .video-page h1 {
     font-family: Cardenio Modern;

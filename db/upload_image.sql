@@ -1,4 +1,4 @@
 insert into images
-(url)
+(url, description)
 values 
-(${url})
+(${url}, ${description})
