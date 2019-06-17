@@ -93,7 +93,7 @@ updateComment = (id) =>
 
     const comments = this.state.comments.map(comment => (
       <div className='pictures4'>
-        <button onClick= {() => this.deleteComment(comment.comment_id)}>x</button>
+        <button className='button' onClick= {() => this.deleteComment(comment.comment_id)}>x</button>
         <button onClick= {() => this.updateComment(comment.comment_id)}>Update</button>
         <input type='text' onChange= {this.handleUpdateInputchange}/>
         <h1>Author: {comment.firstname + ' ' + comment.lastname}</h1>
