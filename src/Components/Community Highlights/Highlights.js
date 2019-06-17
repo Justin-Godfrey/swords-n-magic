@@ -13,7 +13,8 @@ class Highlights extends Component {
     isUploading: false,
     url: "",
     comments: [],
-    input: ''
+    input: '',
+    updatedInput: ''
   };
 
   componentDidMount() {
@@ -61,8 +62,22 @@ class Highlights extends Component {
     })
 }
 
+updateComment = (id) =>
+{
+  const {updatedInput} = this.state
+  axios.put(`/api/comment/${id}`, {updatedInput})
+  .then((serverResponse) => {
+   this.getComments()
+    
+  })
+}
+
   handleInputChange = (event) => {
     this.setState({input: event.target.value})
+  }
+
+  handleUpdateInputchange = (event) => {
+    this.setState({updatedInput: event.target.value})
   }
 
   getComments = () => {
@@ -79,7 +94,8 @@ class Highlights extends Component {
     const comments = this.state.comments.map(comment => (
       <div className='pictures4'>
         <button onClick= {() => this.deleteComment(comment.comment_id)}>x</button>
-        
+        <button onClick= {() => this.updateComment(comment.comment_id)}>Update</button>
+        <input type='text' onChange= {this.handleUpdateInputchange}/>
         <p className="legend">{comment.user_comment}</p>
       </div>
     ));

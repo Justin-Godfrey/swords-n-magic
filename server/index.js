@@ -69,6 +69,7 @@ app.post("/auth/login", authCtrl.login);
 app.post('/api/comment', authCtrl.submitComment)
 app.get('/all/comments', authCtrl.getComment)
 app.delete('/api/comment/:id', authCtrl.deleteComment)
+app.put('/api/comment/:id', authCtrl.updateComment)
 // app.delete('/api/comment', authCtrl.deleteComment)
 
 massive(CONNECTION_STRING).then(database => {

@@ -59,6 +59,15 @@ module.exports = {
         db.delete_comment({id}).then(response => {
             res.send('Comment Deleted')
         })
+    },
+
+    updateComment: (req, res) => {
+        const {id} = req.params
+        const {updatedInput} = req.body
+        const db = req.app.get('db')
+        db.update_comment({id, comment: updatedInput}).then(response => {
+            res.send('Comment updated')
+        })
     }
 
     // deleteComment: (req, res) => {
