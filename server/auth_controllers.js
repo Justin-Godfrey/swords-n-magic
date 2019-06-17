@@ -38,11 +38,11 @@ module.exports = {
         })
     },
     submitComment: (req, res) => {
+        const {user_id, comment} = req.body;
         const db = req.app.get('db')
         console.log(req.body)
-        db.post_comments([req.body.comment]).then(response => {
-            console.log(response)
-            res.send(response)
+        db.post_comments({comment, user_id}).then(response => {
+            res.send('comment submitted')
         })
     },
 

@@ -43,9 +43,9 @@ class Highlights extends Component {
   };
 
   submitComment = () => {
-    axios.post('/api/comment', { comment: this.state.input })
+    const {person_id} = this.props.user;
+    axios.post('/api/comment', { comment: this.state.input, user_id: person_id })
       .then(serverResponse => {
-        this.setState({comments: serverResponse.data})
         this.getComments()
       })
       // .catch(err => {
@@ -89,13 +89,14 @@ updateComment = (id) =>
   }
 
   render() {
-    console.log(this.state);
+    console.log(this.props);
 
     const comments = this.state.comments.map(comment => (
       <div className='pictures4'>
         <button onClick= {() => this.deleteComment(comment.comment_id)}>x</button>
         <button onClick= {() => this.updateComment(comment.comment_id)}>Update</button>
         <input type='text' onChange= {this.handleUpdateInputchange}/>
+        <h1>Author: {comment.firstname + ' ' + comment.lastname}</h1>
         <p className="legend">{comment.user_comment}</p>
       </div>
     ));
