@@ -6,17 +6,18 @@ import axios from "axios";
 import Dropzone from "react-dropzone";
 import { GridLoader } from "react-spinners";
 import { v4 as randomString } from "uuid";
+import "./Highlights.css"
 
 class Highlights extends Component {
   state = {
     isUploading: false,
     url: "",
-    images: [],
+    comments: [],
     input: ''
   };
 
   componentDidMount() {
-   this.getImages()
+   this.getComments()
   }
 
   getSignedRequest = ([file]) => {
@@ -40,37 +41,34 @@ class Highlights extends Component {
       });
   };
 
-  uploadFile = (file, signedRequest, url) => {
-    const options = {
-      headers: {
-        "Content-Type": file.type
-      }
-    };
-
-    axios
-      .put(signedRequest, file, options)
-      .then(response => {
-        this.setState({ isUploading: false, url });
-        return axios.post("/api/store/image", { url: this.state.url, description: this.state.input });
-      })
+  submitComment = () => {
+    axios.post('/api/comment', { comment: this.state.input })
       .then(serverResponse => {
-        this.getImages()
+        this.setState({comments: serverResponse.data})
+        this.getComments()
       })
-      .catch(err => {
-        this.setState({
-          isUploading: false
-        });
-      });
+      // .catch(err => {
+      //   this.setState({
+      //     isUploading: false
+      //   });
+      // });
   };
+
+  deleteComment = (id) => {
+    axios.delete(`/api/comment/${id}` 
+    ).then((serverResponse) => {
+      this.getComments()
+    })
+}
 
   handleInputChange = (event) => {
     this.setState({input: event.target.value})
   }
 
-  getImages = () => {
-    axios.get("/all/images").then(response => {
+  getComments = () => {
+    axios.get("/all/comments").then(response => {
       this.setState({
-        images: response.data
+        comments: response.data
       });
     });
   }
@@ -78,22 +76,22 @@ class Highlights extends Component {
   render() {
     console.log(this.state);
 
-    const mappedImages = this.state.images.map(image => (
-      <div>
-        <img
-          src={image.url}
-          alt="something"
-        />
-        <p className="legend">{image.description}</p>
+    const comments = this.state.comments.map(comment => (
+      <div className='pictures4'>
+        <button onClick= {() => this.deleteComment(comment.comment_id)}>x</button>
+        
+        <p className="legend">{comment.user_comment}</p>
       </div>
     ));
 
+
     return (
       <>
-        {/* <Carousel infiniteLoop autoPlay stopOnHover dynamicHeight>
-          <div style={{ height: "750px", width: "2000px" }}>
+      <div className='container-10' style={{width: '1500px', margin: '0 auto'}}>
+        <Carousel infiniteLoop autoPlay stopOnHover dynamicHeight>
+          <div style={{ height: "100%", width: "" }}>
             <img
-              src="https://via.placeholder.com/190"
+              src={require("../../Assets/1.png")}
               alt="something"
               style={{ width: "100%", height: "100%" }}
             />
@@ -101,47 +99,118 @@ class Highlights extends Component {
           </div>
           <div style={{ height: "750px", width: "2000px" }}>
             <img
-              src="https://via.placeholder.com/190"
+              src={require("../../Assets/2.png")}
+              alt="Img did not Load"
+              style={{ width: "100%", height: "100%" }}
+            />
+            <p className="legend">Carousel</p>
+          </div>
+          <div style={{ height: "750px", width: "2000px" }}>
+            <img
+              src={require("../../Assets/4.png")}
               alt="something"
               style={{ width: "100%", height: "100%" }}
             />
             <p className="legend">Carousel</p>
           </div>
-        </Carousel> */}
+          <div style={{ height: "750px", width: "2000px" }}>
+            <img
+              src={require("../../Assets/5.png")}
+              alt="something"
+              style={{ width: "100%", height: "100%" }}
+            />
+            <p className="legend">Carousel</p>
+          </div>
+          <div style={{ height: "750px", width: "2000px" }}>
+            <img
+              src={require("../../Assets/6.png")}
+              alt="something"
+              style={{ width: "100%", height: "100%" }}
+            />
+            <p className="legend">Carousel</p>
+          </div>
+          <div style={{ height: "750px", width: "2000px" }}>
+            <img
+              src={require("../../Assets/7.png")}
+              alt="something"
+              style={{ width: "100%", height: "100%" }}
+            />
+            <p className="legend">Carousel</p>
+          </div>
+          
+          <div style={{ height: "750px", width: "2000px" }}>
+            <img
+              src={require("../../Assets/9.png")}
+              alt="something"
+              style={{ width: "100%", height: "100%" }}
+            />
+            <p className="legend">Carousel</p>
+          </div>
+          <div style={{ height: "750px", width: "2000px" }}>
+            <img
+              src={require("../../Assets/10.png")}
+              alt="something"
+              style={{ width: "100%", height: "100%" }}
+            />
+            <p className="legend">Carousel</p>
+          </div>
+          <div style={{ height: "750px", width: "2000px" }}>
+            <img
+              src={require("../../Assets/11.png")}
+              alt="something"
+              style={{ width: "100%", height: "100%" }}
+            />
+            <p className="legend">Carousel</p>
+          </div>
+          <div style={{ height: "750px", width: "2000px" }}>
+            <img
+              src={require("../../Assets/12.png")}
+              alt="something"
+              style={{ width: "100%", height: "100%" }}
+            />
+            <p className="legend">Carousel</p>
+          </div>
+          <div style={{ height: "750px", width: "2000px" }}>
+            <img
+              src={require("../../Assets/13.png")}
+              alt="something"
+              style={{ width: "100%", height: "100%" }}
+            />
+            <p className="legend">Carousel</p>
+          </div>
+          <div style={{ height: "750px", width: "2000px" }}>
+            <img
+              src={require("../../Assets/14.png")}
+              alt="something"
+              style={{ width: "100%", height: "100%" }}
+            />
+            <p className="legend">Carousel</p>
+          </div>
+          <div style={{ height: "750px", width: "2000px" }}>
+            <img
+              src={require("../../Assets/15.png")}
+              alt="something"
+              style={{ width: "100%", height: "100%" }}
+            />
+            <p className="legend">Carousel</p>
+          </div>
+         
+           
+        </Carousel>
+        </div>
 
-        {mappedImages}
 
-        <Dropzone
-          onDropAccepted={this.getSignedRequest}
-          accept="image/*"
-          multiple={false}
-        >
-          {({ getRootProps, getInputProps }) => (
-            <div
-              style={{
-                position: "relative",
-                width: 160,
-                height: 80,
-                borderWidth: 5,
-                marginTop: 25,
-                borderColor: "gray",
-                borderStyle: "dashed",
-                borderRadius: 5,
-                display: "inline-block",
-                fontSize: 17
-              }}
-              {...getRootProps()}
-            >
-              <input {...getInputProps()} />
-              {this.state.isUploading ? (
-                <GridLoader />
-              ) : (
-                <p>Drop files here, or click to select files</p>
-              )}
-            </div>
-          )}
-        </Dropzone>
-        <input placeholder="image description" onChange={this.handleInputChange}/>
+        {/* {mappedImages} */}
+        <div className= 'highlightPage'>
+
+
+        
+        <input placeholder="Comments & Questions" onChange={this.handleInputChange} style={{width: '1000px', height: '50px', margin: '0 auto'}}/>
+        <button onClick={this.submitComment}>Submit</button>
+          </div>
+          {comments}
+          {/* <button onClick={this.deleteComment}>x</button> */}
+          
       </>
     );
   }

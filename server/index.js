@@ -66,7 +66,10 @@ app.post('/api/store/image', (req, res) => {
 
 app.post("/auth/newUser", authCtrl.register);
 app.post("/auth/login", authCtrl.login);
-app.get('/all/images', authCtrl.images)
+app.post('/api/comment', authCtrl.submitComment)
+app.get('/all/comments', authCtrl.getComment)
+app.delete('/api/comment/:id', authCtrl.deleteComment)
+// app.delete('/api/comment', authCtrl.deleteComment)
 
 massive(CONNECTION_STRING).then(database => {
   app.set("db", database);

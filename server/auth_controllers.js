@@ -37,11 +37,34 @@ module.exports = {
             }
         })
     },
-    images: (req, res) => {
+    submitComment: (req, res) => {
         const db = req.app.get('db')
-        db.get_all_images().then(response => {
+        console.log(req.body)
+        db.post_comments([req.body.comment]).then(response => {
+            console.log(response)
             res.send(response)
         })
+    },
+
+    getComment: (req, res) => {
+        const db = req.app.get('db')
+        db.get_all_comments().then(response => {
+            res.send(response)
+        })
+    },
+
+    deleteComment: (req, res) => {
+        const {id} = req.params
+        const db = req.app.get('db')
+        db.delete_comment({id}).then(response => {
+            res.send('Comment Deleted')
+        })
     }
+
+    // deleteComment: (req, res) => {
+    //     const db = req.app.delete('db')
+    //     console.log(req.body)
+    //     db. 
+    // }
 }
 
