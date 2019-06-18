@@ -10,6 +10,7 @@ const app = express();
 const { CONNECTION_STRING, SERVER_PORT, SESSION_SECRET, AWS_SECRET_ACCESS_KEY, AWS_ACCESS_KEY_ID, S3_BUCKET } = process.env;
 
 app.use(express.json({limit: '50mb'}));
+app.use( express.static( `${__dirname}/../build` ) );
 app.use(express.urlencoded({limit: '50mb', extended: true}))
 app.use(
   session({
