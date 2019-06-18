@@ -93,17 +93,22 @@ updateComment = (id) =>
 
     const comments = this.state.comments.map(comment => (
       <div className='pictures4'>
-        <button className='button' onClick= {() => this.deleteComment(comment.comment_id)}>x</button>
-        <button onClick= {() => this.updateComment(comment.comment_id)}>Update</button>
-        <input type='text' onChange= {this.handleUpdateInputchange}/>
+        <button className='xButton' onClick= {() => this.deleteComment(comment.comment_id)}>Delete</button>
+        <button className='updateButton' onClick= {() => this.updateComment(comment.comment_id)}>Update</button>
+        <input placeholder='Update Comment' type='text' onChange= {this.handleUpdateInputchange} style={{width: '1000px', height: '50px', margin: '0 auto'}}/>
+        <span className='authorFont'>
         <h1>Author: {comment.firstname + ' ' + comment.lastname}</h1>
+        </span>
+        <span className='commentFont'>
         <p className="legend">{comment.user_comment}</p>
+        </span>
       </div>
     ));
 
 
     return (
       <>
+      \
       <div className='container-10' style={{width: '1500px', margin: '0 auto'}}>
         <Carousel infiniteLoop autoPlay stopOnHover dynamicHeight>
           <div style={{ height: "100%", width: "" }}>
@@ -223,7 +228,7 @@ updateComment = (id) =>
 
         
         <input placeholder="Comments & Questions" onChange={this.handleInputChange} style={{width: '1000px', height: '50px', margin: '0 auto'}}/>
-        <button onClick={this.submitComment}>Submit</button>
+        <button className='submitButton' onClick={this.submitComment}>Submit</button>
           </div>
           {comments}
           {/* <button onClick={this.deleteComment}>x</button> */}
