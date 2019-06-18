@@ -9,6 +9,8 @@
     justify-content: flex-end;
     align-items: center;
     margin-right: 10px;
+    font-size: 40px;
+    font-family: Cardenio Modern;
 }
 
 .links-2  a {
