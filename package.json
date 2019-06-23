@@ -38,7 +38,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "Swords n' Magic"
   },
   "browserslist": {
     "production": [
