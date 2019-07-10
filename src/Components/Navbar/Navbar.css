@@ -108,12 +108,7 @@
     animation: menu-slide-in 300ms linear;
 }
 
-.popup-links-container a {
-    color: white;
-    text-decoration: none;
-    font-size: 40px;
-    font-family: Cardenio Modern;
-}
+
 
 @keyframes menu-slide-in {
     0% {
